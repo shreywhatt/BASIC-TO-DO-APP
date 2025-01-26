@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:todolistapp/util/dialbox.dart';
 import '../util/todotile.dart';
 
@@ -10,6 +11,11 @@ class todolistpage extends StatefulWidget {
 }
 
 class _todolistpageState extends State<todolistpage> {
+
+  //reference the hive box
+  final mybox = Hive.openBox('mybox');
+
+
   //text controller
   final controller = TextEditingController();
   // list of todo tasks
@@ -30,12 +36,14 @@ class _todolistpageState extends State<todolistpage> {
   void savenewtask(){
     setState(() {
       todolist.add([controller.text, false],);
+      controller.clear();
+      Navigator.of(context).pop();
     },
     );
   }
 
   //method to add new task
-  void createNewTask(){
+  void createNewTask( ){
     showDialog(
         context: context,
         builder: (context){
@@ -47,6 +55,14 @@ class _todolistpageState extends State<todolistpage> {
           );
         },
     );
+  }
+
+  //delete the task
+  void deleteTask(int index) {
+    setState(() {
+      todolist.removeAt(index);
+    });
+
   }
   @override
   Widget build(BuildContext context) {
@@ -79,6 +95,7 @@ class _todolistpageState extends State<todolistpage> {
           taskName: todolist[index][0],
           taskCompleted: todolist[index][1],
           onChanged:(value) => CheckBoxChanged(value,index),
+            deleteFunction: (context) => deleteTask(index,),
           );
         },
       )

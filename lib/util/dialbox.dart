@@ -17,16 +17,19 @@ class Dialbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      content: Container(
+      content: SizedBox(
         height:120,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             //get user input
             TextField(
-              controller:controller ,
+              controller:controller,
+              cursorColor: Colors.deepPurple,
+
               decoration: InputDecoration(border: OutlineInputBorder(),
-              hintText: "Add a new task"),
+
+              hintText: "Add a new task",),
             ),
 
             //buttons => save+cancel
@@ -43,11 +46,9 @@ class Dialbox extends StatelessWidget {
                 myButton(text: "C A N C E L", onPressed: onCancel),
               ],
             )
-
-
           ],
-        )    ),
-
+        )
+      ),
     );
   }
 }
