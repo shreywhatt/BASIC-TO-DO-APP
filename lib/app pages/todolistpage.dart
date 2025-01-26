@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:todolistapp/data/database.dart';
 import 'package:todolistapp/util/dialbox.dart';
 import '../util/todotile.dart';
 
@@ -14,28 +15,26 @@ class _todolistpageState extends State<todolistpage> {
 
   //reference the hive box
   final mybox = Hive.openBox('mybox');
+  ToDoDatabase db = ToDoDatabase();
 
 
   //text controller
   final controller = TextEditingController();
   // list of todo tasks
 
-  List todolist = [
-    ["Make tutorial", false],
-    ["Do exercise", false],
-  ];
+
 
   //method for checkbox was tapped
   void CheckBoxChanged(bool? value, int index){
     setState(() {
-      todolist[index][1] = !todolist[index][1];
+      db.todolist[index][1] = !db.todolist[index][1];
     });
   }
 
   //save new task
   void savenewtask(){
     setState(() {
-      todolist.add([controller.text, false],);
+      db.todolist.add([controller.text, false],);
       controller.clear();
       Navigator.of(context).pop();
     },
@@ -60,7 +59,7 @@ class _todolistpageState extends State<todolistpage> {
   //delete the task
   void deleteTask(int index) {
     setState(() {
-      todolist.removeAt(index);
+      db.todolist.removeAt(index);
     });
 
   }
@@ -89,11 +88,11 @@ class _todolistpageState extends State<todolistpage> {
 
 
       body: ListView.builder(
-        itemCount: todolist.length,
+        itemCount: db.todolist.length,
         itemBuilder: (context, index) {
           return todotile(
-          taskName: todolist[index][0],
-          taskCompleted: todolist[index][1],
+          taskName: db.todolist[index][0],
+          taskCompleted: db.todolist[index][1],
           onChanged:(value) => CheckBoxChanged(value,index),
             deleteFunction: (context) => deleteTask(index,),
           );
