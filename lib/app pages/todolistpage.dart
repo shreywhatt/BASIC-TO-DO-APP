@@ -42,6 +42,7 @@ class _todolistpageState extends State<todolistpage> {
     setState(() {
       db.todolist[index][1] = !db.todolist[index][1];
     });
+    db.updateDatabase();
   }
 
   //save new task
@@ -52,6 +53,7 @@ class _todolistpageState extends State<todolistpage> {
       Navigator.of(context).pop();
     },
     );
+    db.updateDatabase();
   }
 
   //method to add new task
@@ -74,8 +76,11 @@ class _todolistpageState extends State<todolistpage> {
     setState(() {
       db.todolist.removeAt(index);
     });
+    db.updateDatabase();
 
   }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
