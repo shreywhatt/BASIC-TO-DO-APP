@@ -14,9 +14,22 @@ class todolistpage extends StatefulWidget {
 class _todolistpageState extends State<todolistpage> {
 
   //reference the hive box
-  final mybox = Hive.openBox('mybox');
+  final mybox = Hive.box('mybox');
   ToDoDatabase db = ToDoDatabase();
 
+  @override
+  void initState() {
+    // if this is the first time ever opening the app, then create default data
+    if (mybox.get("TODOLIST")== null){
+      db.createInitialData();
+    }
+    else{
+      // there already exist data
+      db.loadData();
+    }
+
+    super.initState();
+  }
 
   //text controller
   final controller = TextEditingController();
