@@ -6,12 +6,23 @@ A simple and elegant To-Do List application developed using **Flutter** and **Da
 
 ## 📱 Screenshots
 
-|                Task List               |                Add Task               |                Delete Task               |
-| :------------------------------------: | :-----------------------------------: | :--------------------------------------: |
-| ![Task List](./assets/screenshot1.jpg) | ![Add Task](./assets/screenshot2.jpg) | ![Delete Task](./assets/screenshot3.jpg) |
+| Task View 1 | Task View 2 | Add Task |
+|:-----------:|:-----------:|:--------:|
+| ![Screenshot 1](assets/WhatsApp%20Image%202025-05-24%20at%2011.46.03%20PM%20(1).jpeg) | ![Screenshot 2](assets/WhatsApp%20Image%202025-05-24%20at%2011.46.03%20PM.jpeg) | ![Screenshot 3](assets/WhatsApp%20Image%202025-05-24%20at%2011.46.04%20PM%20(1).jpeg) |
 
+| Edit Task | Delete Task |
+|:---------:|:-----------:|
+| ![Screenshot 4](assets/WhatsApp%20Image%202025-05-24%20at%2011.46.04%20PM.jpeg) | ![Screenshot 5](assets/WhatsApp%20Image%202025-05-24%20at%2011.46.05%20PM.jpeg) |
 
 ---
+
+## 🎥 Demo Video
+
+[![Watch the video](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](assets/WhatsApp%20Video%202025-05-24%20at%2011.46.02%20PM.mp4)
+
+<!-- Or, if you just want a direct link to the video in your repo: -->
+🔗 [Watch Demo Video](assets/WhatsApp%20Video%202025-05-24%20at%2011.46.02%20PM.mp4)
+
 
 ## 🚀 Features
 
